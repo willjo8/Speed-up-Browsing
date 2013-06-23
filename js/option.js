@@ -1,4 +1,25 @@
-function save(){var txtImage=document.getElementById("txtImage"),txtScript=document.getElementById("txtScript"),txtStyleSheet=document.getElementById("txtStyleSheet"),txtOther=document.getElementById("txtOther");var background=chrome.extension.getBackgroundPage(),st=document.getElementById("txt_status");background.image_time=localStorage.image=txtImage.value;background.script_time=localStorage.script=txtScript.value;background.styleSheet_time=localStorage.styleSheet=txtStyleSheet.value;background.other_time=localStorage.other=txtOther.value;st.innerHTML="Settings saved...";window.setTimeout(function(){st.innerHTML="";},1000);}
-function exit(){chrome.tabs.getCurrent(function(tab){chrome.tabs.remove(tab.id,function(){});});}
-function restore_options(){document.getElementById("txtImage").value=localStorage.image;document.getElementById("txtScript").value=localStorage.script;document.getElementById("txtStyleSheet").value=localStorage.styleSheet;document.getElementById("txtOther").value=localStorage.other;}
-window.onload=function(){restore_options();document.getElementById("save").onclick=function(){save();};document.getElementById("exit").onclick=function(){exit();};};
+function save() {
+	var txt_cache = document.getElementById("txt_cache"), st = document.getElementById("txt_status");
+	chrome.extension.getBackgroundPage().txt_cache = localStorage.txt_cache = txt_cache.value;
+	st.innerHTML = "Settings saved...";
+	window.setTimeout(function () {
+		st.innerHTML = "";
+	}, 1500);
+}
+function exit() {
+	chrome.tabs.getCurrent(function (tab) {
+		chrome.tabs.remove(tab.id, function () { });
+	});
+}
+function restore_options() {
+	document.getElementById("txt_cache").value = localStorage.txt_cache;
+}
+window.onload = function () {
+	restore_options();
+	document.getElementById("btn_save").onclick = function () {
+		save();
+	};
+	document.getElementById("btn_exit").onclick = function () {
+		exit();
+	};
+};
