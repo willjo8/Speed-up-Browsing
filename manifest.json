@@ -13,6 +13,7 @@
 	"developer" : {
 		"name" : "mubaidr"
 	},
+	"homepage_url": "http://my.opera.com/mubaidr/blog/",
 	"permissions" : ["<all_urls>", "webRequest", "webRequestBlocking"],
 	"incognito" : "spanning",
 	"name" : "Speed-Up Browsing"
