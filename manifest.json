@@ -5,18 +5,18 @@
 	},
 	"offline_enabled" : false,
 	"background" : {
-		"persistent": true,
+		"persistent" : true,
 		"scripts" : ["js/background.js"]
 	},
-	"version" : "1.5",
+	"version" : "1.6",
 	"options_page" : "html/option.html",
 	"manifest_version" : 2,
 	"developer" : {
 		"name" : "mubaidr",
-		"url": "http://my.opera.com/mubaidr/blog/"
+		"url" : "http://my.opera.com/mubaidr/blog/"
 	},
-	"homepage_url": "http://my.opera.com/mubaidr/blog/",
-	"permissions" : ["<all_urls>", "webRequest", "webRequestBlocking", "tabs"],
+	"homepage_url" : "http://my.opera.com/mubaidr/blog/",
+	"permissions" : ["<all_urls>", "webRequest", "webRequestBlocking", "tabs", "storage"],
 	"incognito" : "spanning",
 	"name" : "Speed-Up Browsing"
 }
