@@ -16,7 +16,7 @@
 		"url" : "http://my.opera.com/mubaidr/blog/"
 	},
 	"homepage_url" : "http://my.opera.com/mubaidr/blog/",
-	"permissions" : ["<all_urls>", "webRequest", "webRequestBlocking", "tabs", "storage"],
+	"permissions" : ["<all_urls>", "webRequest", "webRequestBlocking", "storage"],
 	"incognito" : "spanning",
 	"name" : "Speed-Up Browsing"
 }

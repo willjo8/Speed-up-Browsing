@@ -8,14 +8,10 @@ function save() {
 	st.innerHTML = 'Settings saved...';
 	window.setTimeout(function () {
 		st.innerHTML = '';
-		chrome.tabs.getCurrent(function (tab) {
-			chrome.tabs.remove(tab.id, function () {});
-		});
 	}, 500);
 }
 function restore_options() {
 	chrome.storage.local.get('txt_cache', function (object) {
-		console.log(object['txt_cache']);
 		document.getElementById('txt_cache').value = object['txt_cache'];
 	})
 }
