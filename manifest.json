@@ -8,7 +8,7 @@
 		"persistent" : true,
 		"scripts" : ["js/background.js"]
 	},
-	"version" : "1.6",
+	"version" : "1.6.1",
 	"options_page" : "html/option.html",
 	"manifest_version" : 2,
 	"developer" : {

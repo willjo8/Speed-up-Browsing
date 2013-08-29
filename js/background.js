@@ -8,8 +8,9 @@ chrome.webRequest.onHeadersReceived.addListener(function (object) {
 				elem = headers[len];
 				switch (elem.name.toLowerCase()) {
 				case 'cache-control':
-					if (!f)
+					if (!f){
 						f = true;
+						elem.value='private, max-age=' + txt_cache}
 					else
 						headers.splice(len, 1);
 					break;
