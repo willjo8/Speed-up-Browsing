@@ -1,7 +1,5 @@
-/*More aggressive settings, working fine
-A test function included to test settings
-*/
-.webRequest.onHeadersReceived.addListener(function (object) {
+/*More aggressive settings, working fine*/
+chrome.webRequest.onHeadersReceived.addListener(function (object) {
 	'use strict';
 	if (object) {
 		var object_type = object.type.toLowerCase();
@@ -14,8 +12,10 @@ A test function included to test settings
 				elem = headers[len];
 				switch (elem.name.toLowerCase()) {
 				case 'cache-control':
-					if (!f)
+					if (!f) {
 						f = true;
+						headers[len].value = 'private, max-age=' + txt_cache;
+					}
 					break;
 				case 'expires':
 				case 'last-modified':
@@ -41,22 +41,12 @@ A test function included to test settings
 }, {
 	urls : ['<all_urls>']
 }, ['blocking', 'responseHeaders']);
-var txt_cache = '604800';
+var txt_cache = '31536000';
 chrome.runtime.onInstalled.addListener(function () {
 	chrome.storage.local.set({
-		'txt_cache' : '604800'
+		'txt_cache' : '31536000'
 	});
 });
 chrome.storage.local.get(function (object) {
 	txt_cache = object['txt_cache'];
 });
-/*
-function test(headers, object_type) {
-	console.log("__________________________" + object_type + "___________________________");
-	for (var i = 0, ln = headers.length; i < ln; i++) {
-		if (headers[i].name.toLowerCase() === "cache-control") {
-			console.log(headers[i].name + ":" + headers[i].value);
-		}
-	}
-}
-*/
