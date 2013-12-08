@@ -1,4 +1,7 @@
-chrome.webRequest.onHeadersReceived.addListener(function (object) {
+/*More aggressive settings, working fine
+A test function included to test settings
+*/
+.webRequest.onHeadersReceived.addListener(function (object) {
 	'use strict';
 	if (object) {
 		var object_type = object.type.toLowerCase();
