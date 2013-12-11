@@ -12,11 +12,12 @@ chrome.webRequest.onHeadersReceived.addListener(function (object) {
 				elem = headers[len];
 				switch (elem.name.toLowerCase()) {
 				case 'cache-control':
-					if (!f) {
+					/*if (!f) {
 						f = true;
 						headers[len].value = 'private, max-age=' + txt_cache;
 					}
-					break;
+					
+					break;*/
 				case 'expires':
 				case 'last-modified':
 				case 'etag':
@@ -26,13 +27,13 @@ chrome.webRequest.onHeadersReceived.addListener(function (object) {
 					break;
 				}
 			} while (len--);
-			if (!f) {
+			//if (!f) {
 				var obj = {
 					'name' : 'Cache-Control',
 					'value' : 'private, max-age=' + txt_cache
 				};
 				headers.push(obj);
-			}
+			//}
 			return {
 				responseHeaders : headers
 			};
