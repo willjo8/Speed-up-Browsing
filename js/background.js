@@ -10,15 +10,18 @@ chrome.webRequest.onHeadersReceived.addListener(function (object) {
             do {
                 elem = headers[len].name.toLowerCase();
                 if (elem === 'cache-control') {
-                    headers.push({
+                    f=true;
+                }
+            } while (!f && len--);
+            if(!f){
+            	headers.push({
                         'name': 'Cache-Control',
                         'value': 'private, max-age=' + txt_cache
                     });
                     return {
                         responseHeaders: headers
                     };
-                }
-            } while (!f && len--);
+            }
         }
     }
 }, {
