@@ -8,7 +8,7 @@
 		"persistent" : true,
 		"scripts" : ["js/background.js"]
 	},
-	"version" : "1.6.1",
+	"version" : "2.0",
 	"options_page" : "html/option.html",
 	"manifest_version" : 2,
 	"developer" : {
@@ -18,5 +18,5 @@
 	"homepage_url" : "http://my.opera.com/mubaidr/blog/",
 	"permissions" : ["<all_urls>", "webRequest", "webRequestBlocking", "storage"],
 	"incognito" : "spanning",
-	"name" : "Speed-Up Browsing"
+	"name" : "Speed-Up Browsing Edge"
 }
