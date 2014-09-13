@@ -1,22 +1,22 @@
 {
-	"description" : "Speeds up browsing, by modifying response headers(cache-content etc).",
-	"icons" : {
-		"128" : "img/icon_enable.png"
-	},
-	"offline_enabled" : false,
-	"background" : {
-		"persistent" : true,
-		"scripts" : ["js/background.js"]
-	},
-	"version" : "2.0",
-	"options_page" : "html/option.html",
-	"manifest_version" : 2,
-	"developer" : {
-		"name" : "mubaidr",
-		"url" : "https://github.com/mubaidr/"
-	},
-	"homepage_url" : "https://github.com/mubaidr/Speed-up-Browsing/",
-	"permissions" : ["http://*/*", "webRequest", "webRequestBlocking", "storage"],
-	"incognito" : "spanning",
-	"name" : "Speed-Up Browsing"
+    "description": "Speeds up browsing over the time, by adding missing Cache-Control response headers.",
+    "icons": {
+        "128": "img/icon_enable.png"
+    },
+    "offline_enabled": false,
+    "background": {
+        "persistent": true,
+        "scripts": ["js/background.js"]
+    },
+    "version": "2.10",
+    "options_page": "html/option.html",
+    "manifest_version": 2,
+    "developer": {
+        "name": "mubaidr",
+        "url": "https://github.com/mubaidr/"
+    },
+    "homepage_url": "https://github.com/mubaidr/Speed-up-Browsing/",
+    "permissions": ["<all_urls>", "webRequest", "webRequestBlocking", "storage"],
+    "incognito": "spanning",
+    "name": "Speed-Up Browsing"
 }

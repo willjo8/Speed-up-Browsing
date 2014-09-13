@@ -1,53 +1,62 @@
-chrome.webRequest.onHeadersReceived.addListener(function (object) {
+(function () {
     'use strict';
-    if (object) {
-        var object_type = object.type.toLowerCase();
-        if ((object_type !== 'main_frame') && (object_type !== 'sub_frame') && (object_type !== 'xmlhttprequest')) {
-            var headers = object.responseHeaders,
-                len = headers.length - 1,
-                f = false,
-                elem = null;
-                //Debug code
-            	test(headers, object_type, 'old');
-            do {
-                elem = headers[len].name.toLowerCase();
-                if (elem === 'cache-control') {
-                    f=true;
+    /*global chrome, console*/
+    var cache = '2592000';
+    chrome.webRequest.onHeadersReceived.addListener(function (obj) {
+        var headers = obj.responseHeaders,
+            cont = false,
+            flag,
+            i;
+        //Debug code
+        //test(headers, 'old');
+        if (obj) {
+            for (i = 0; i < headers.length && !cont; i = i + 1) {
+                flag = headers[i].name.toLowerCase();
+                if (flag === 'cache-control') {
+                    cont = true;
+                    break;
+                } else if (flag === 'expires' || flag === 'last-modified' || flag === 'eflag' || flag === 'age') {
+                    headers.splice(i, 1);
                 }
-            } while (!f && len--);
-            if(!f){
-            	headers.push({
-                        'name': 'Cache-Control',
-                        'value': 'private, max-age=' + txt_cache
-                    });
-                    
-	            //Debug code
-	            test(headers, object_type, 'new');
-	            
-	            return {
-	                responseHeaders: headers
-	            };
+            }
+            if (!cont) {
+                headers.push({
+                    'name': 'cache-control',
+                    'value': 'private, max-age=' + cache
+                });
+                //Debug code
+                //test(headers, 'new');
+                return {
+                    responseHeaders: headers
+                };
             }
         }
-    }
-}, {
-    urls: ['http://*/*']
-}, ['blocking', 'responseHeaders']);
-var txt_cache = '604800';
-chrome.runtime.onInstalled.addListener(function () {
-    chrome.storage.local.set({
-        'txt_cache': '604800'
-    });
-});
-chrome.storage.local.get(function (object) {
-    txt_cache = object['txt_cache'];
-});
+    }, {
+        urls: ['<all_urls>']
+    }, ['blocking', 'responseHeaders']);
 
-function test(headers, object_type, type) {
-	console.log(type + "__________________________" + object_type + "___________________________");
-	for (var i = 0, ln = headers.length; i < ln; i++) {
-		if (headers[i].name.toLowerCase() === "cache-control") {
-			console.log(headers[i].name + ":" + headers[i].value);
-		}
-	}
-}
+    chrome.runtime.onInstalled.addListener(function () {
+        cache = '2592000';
+        chrome.storage.local.set({
+            'cache': cache
+        });
+    });
+
+    chrome.storage.local.get(function (obj) {
+        cache = obj.cache;
+    });
+
+    function test(headers, type) {
+        var i = 0,
+            ln = headers.length;
+        console.log("__________________________" + type + "___________________________");
+        console.log("Starting...");
+        for (i; i < ln; i += 1) {
+            if (headers[i].name.toLowerCase() === "cache-control") {
+                console.log(headers[i].name + ":" + headers[i].value + ": " + i);
+            }
+        }
+        console.log("Ending...");
+        console.log("-----------------------------Exit debug--------------------------------------");
+    }
+}());
