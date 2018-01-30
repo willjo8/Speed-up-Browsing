@@ -1,5 +1,4 @@
-<b>Speed-up-Browsing</b>
-=================
+# <b>Speed-up-Browsing</b>
 
 <b>Opera 15+</b> extension to enhance cache usage.
 
