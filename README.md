@@ -1,6 +1,6 @@
 # <b>Speed-up-Browsing</b>
 
-<b>Opera 15+</b> extension to enhance cache usage.
+<b>Chrome/Chromium/Opera 15+</b> extension to enhance cache usage.
 
 <h3>Description:</h3>
 This extension enhances the re-use of already downloaded images/scripts etc. thus speeds up loading of pages significantly. Just install this extension and enjoy faster surfing.
