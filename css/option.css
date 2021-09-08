@@ -7,6 +7,10 @@ body {
   padding: 0;
 }
 
+button{
+  padding: 0.5em 3em;
+}
+
 #wallpaper-canvas,
 #scroll-container {
   height: 100%;
@@ -100,7 +104,7 @@ a {
   font-size: 1.17rem;
   font-weight: normal;
   line-height: 2rem;
-  margin: 12px 0;
+  margin: 23m 0;
 }
 
 .section-header::after {
@@ -112,6 +116,11 @@ a {
   -webkit-flex: auto;
   -webkit-margin-start: 10px;
 }
+
+section{
+  margin-bottom: 4em;
+}
+
 section div {
   margin: 5px 20px;
 }

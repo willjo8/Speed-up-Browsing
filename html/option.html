@@ -3,50 +3,59 @@
 <head>
   <meta charset="utf-8">
   <title>Speed-Up Browsing Options</title>
-  <script type="text/javascript"
-          src="../js/option.js"></script>
-  <link rel="stylesheet"
-        href="../css/option.css">
+  <script type="text/javascript" src="../js/option.js"></script>
+  <link rel="stylesheet" href="../css/option.css">
 </head>
 
 <body>
   <div id="wallpaper">
     <div id="tool-container">
       <div id="sidebar">
-        <div id="sidebar-icon"></div>
-        <h1>Speed-Up Browsing</h1>
+        <p style="text-align: center;">
+          <img src="/img/Lightning Bolt-128x128.png" />
+        <h1>Speed Up Browsing</h1>
+        </p>
       </div>
       <!-- sidebar -->
       <div id="content">
         <section>
           <h3 class="section-header">Options</h3>
           <div id="field_container">
-            <label for="txt_cache">Cache time (Seconds) : </label>
-            <input type="text"
-                   id="txt_cache">
+            <label for="txt_cache">Cache resources for </label>
+            <input type="text" id="txt_cache">
+            Seconds
           </div>
+
           <div id="field_container">
-            <label for="cb_cache_force">Force Cache : </label>
-            <input id="cb_cache_force"
-                   type="checkbox">
-            <span style="color: #aaa"></span>
+            <input id="cb_cache_force" type="checkbox">
+            <label for="cb_cache_force">Force Cache</label>
           </div>
+
           <br>
+
           <div class="clear"></div>
           <div id="button_container">
-            <input type="button"
-                   id="btn_save"
-                   value="Save" />
+            <input type="button" id="btn_save" value="Save" />
           </div>
+
           <div class="clear"></div>
           <label id="txt_status"></label>
         </section>
+
         <section>
-          <h3 class="section-header">Info and Support page</h3>
-          <ul class="info">
-            <li>Support page : <a href="http://my.opera.com/mubaidr/blog/2013/07/21/speed-up-browsing">Speed-Up Browsing : mubaidr@myOpera</a></li>
-            <li>Github link : <a href="http://mubaidr.github.io/Speed-up-Browsing">Speed-Up Browsing on Github</a></li>
-          </ul>
+          <h3 class="section-header">Sponsor my work</h3>
+
+          <a href="https://github.com/sponsors/mubaidr" target="_blank">
+            <img src="/img/sponsor.png" />
+          </a>
+        </section>
+
+        <br>
+
+        <section>
+          <p style="text-align: center;">
+            <a href="http://mubaidr.github.io/Speed-up-Browsing">More info</a>
+          </p>
         </section>
       </div>
       <!-- content -->
