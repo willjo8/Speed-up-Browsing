@@ -1,6 +1,6 @@
 /*global chrome, console*/
-var cache = '2592000'
-var cacheForce = false
+let cache = '2592000'
+let cacheForce = false
 
 chrome.runtime.onInstalled.addListener(function() {
   chrome.storage.local.set({
@@ -18,12 +18,14 @@ chrome.storage.local.get(function (obj) {
 
 chrome.webRequest.onHeadersReceived.addListener(
   function(obj) {
-    var headers = obj.responseHeaders,
-      cont = false
+    let headers = obj.responseHeaders
+    let cont = false
 
-    for (var i = 0; i < headers.length && !cont; i = i + 1) {
-      var flag = headers[i].name.toLowerCase()
-      if (flag === 'cache-control') {
+    for (let i = 0; i < headers.length && !cont; i = i + 1) {
+      let flagName = headers[i].name.toLowerCase()
+      // let flagValue = headers[i].value.toLowerCase()
+
+      if (flagName === 'cache-control') {
         if (cacheForce) {
           headers.splice(i, 1)
         } else {
@@ -32,6 +34,9 @@ chrome.webRequest.onHeadersReceived.addListener(
 
         break
       }
+      // else if (flagName === 'content-type') {
+      //   console.log(flagValue)
+      // }
     }
 
     if (!cont) {
