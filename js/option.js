@@ -3,6 +3,7 @@ function save() {
   var txt_cache = document.getElementById('txt_cache'),
     cb_cache_force = document.getElementById('cb_cache_force'),
     st = document.getElementById('txt_status')
+
   chrome.storage.local.set({
     cache: txt_cache.value,
     cacheForce: cb_cache_force.checked
@@ -26,6 +27,7 @@ function restore_options() {
 
 window.onload = function() {
   restore_options()
+
   document.getElementById('btn_save').onclick = function() {
     save()
   }

@@ -1,6 +1,20 @@
 /*global chrome, console*/
 var cache = '2592000'
-var cacheForce = ''
+var cacheForce = false
+
+chrome.runtime.onInstalled.addListener(function() {
+  chrome.storage.local.set({
+    cache: cache,
+    cacheForce: cacheForce
+  })
+})
+
+chrome.storage.local.get(function (obj) {
+  if (!obj.cache || !obj.cacheForce) return
+
+  cache = obj.cache
+  cacheForce = !!obj.cacheForce
+})
 
 chrome.webRequest.onHeadersReceived.addListener(
   function(obj) {
@@ -36,18 +50,3 @@ chrome.webRequest.onHeadersReceived.addListener(
   },
   ['blocking', 'responseHeaders']
 )
-
-chrome.runtime.onInstalled.addListener(function() {
-  cache = '2592000'
-  cacheForce = false
-
-  chrome.storage.local.set({
-    cache: cache,
-    cacheForce: cacheForce
-  })
-})
-
-chrome.storage.local.get(function(obj) {
-  cache = obj.cache
-  cacheForce = !!obj.cacheForce
-})
